@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URl Shortner</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>URL Shirkner</h1>
+      <form action="/shortUrls" method="POST" class="my-4 form-inline">
+        <label for="fullUrl" class="sr-only">URL</label>
+        <input
+          type="url"
+          name="fullUrl"
+          id="fullUrl"
+          placeholder="URL"
+          required
+          class="form-control col mr-2"
+        />
+        <button class="btn btn-success" type="submit">Shrink</button>
+      </form>
+
+      <table class="table table-stripped">
+        <thead>
+          <tr>
+            <th>
+              Full URL
+            </th>
+            <th>
+              Shorted URL
+            </th>
+            <th>
+              Clicks
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% shortUrls.forEach(shortUrl => {%>
+          <tr>
+            <td>
+              <a href="<%=shortUrl.full%>"><%=shortUrl.full%></a>
+            </td>
+            <td>
+              <a href="<%=shortUrl.short%>"><%=shortUrl.short%></a>
+            </td>
+            <td><%=shortUrl.clicks%></td>
+          </tr>
+          <%});%>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
