@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="container">
-      <h1>URL Shirkner</h1>
+      <h1>URL Minimizer</h1>
       <form action="/shortUrls" method="POST" class="my-4 form-inline">
         <label for="fullUrl" class="sr-only">URL</label>
         <input
@@ -27,7 +27,7 @@
         <button class="btn btn-success" type="submit">Shrink</button>
       </form>
 
-      <table class="table table-stripped">
+      <table class="table table-hover">
         <thead>
           <tr>
             <th>
@@ -45,10 +45,14 @@
           <% shortUrls.forEach(shortUrl => {%>
           <tr>
             <td>
-              <a href="<%=shortUrl.full%>"><%=shortUrl.full%></a>
+              <a href="<%=shortUrl.full%>" target="_blank"
+                ><%=shortUrl.full%></a
+              >
             </td>
             <td>
-              <a href="<%=shortUrl.short%>"><%=shortUrl.short%></a>
+              <a href="<%=shortUrl.short%>" target="_blank"
+                ><%="http://murl.in/"+shortUrl.short%></a
+              >
             </td>
             <td><%=shortUrl.clicks%></td>
           </tr>

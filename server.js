@@ -36,7 +36,7 @@ app.get("/:shortUrl", async (req, res) => {
 
     res.status(301).redirect(shortUrlGot.full);
   } catch (error) {
-    alert("Something went wrong!");
+    res.render("model");
   }
 });
 
